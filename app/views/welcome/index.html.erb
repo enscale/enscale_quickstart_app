@@ -68,7 +68,7 @@
           2. Add an environment variable
         </div>
         <div class="px-6 pb-6">
-          <p class="pb-4">From the application node's <b>Configure tab</b> open <b>Variables</b> and add the following variable:</b>
+          <p class="pb-4">From the <i>application<i/> node's <b>Configure tab</b> open <b>Variables</b> and add the following variable:</b>
           <p class="px-8">Name: REDIS_URL </p>
           <p class="px-8">Value: redis://:[redis_password]@[accessURL] </p>
         <p class="pt-4"><i> *The password and access URL are sent to you via email after the Redis node is created.</i></p>
@@ -103,6 +103,8 @@
         <div class="px-6 pb-6">
           <p>Shared SSL is perfect for development projects which don't need public IP access. Enable it from the <b>Actions</b> dropdown > <b>Manage SSL</b> > <b>Enable Shared SSL</b>.</p>
           <br>
+          <p>Reopen the quickstart app from the Enscale dashboard or manually reload it with https to use the SSL certificate.
+          <br>
           <p>For production use you will have a choice of using your own SSL certificate, or use our Let's Encrypt integration to issue and automatically renew SSL certificates for the environment name or any custom domain you've pointed to your environment.</p>
           
         </div>
@@ -135,13 +137,13 @@
           1. Set up SSH
         </div>
         <div class="px-6">
-          <p>Open the <b>Manage SSH keys</b> modal either from your node's Connect tab or from the main account dropdown and add a <b>public SSH key</b> to the Enscale dashboard so you can connect via SSH to your account environments, or your node directly.</p>
+          <p>Open the <b>Manage SSH keys</b> modal from the main account dropdown (next to your email address) and add a <b>public SSH key</b> to the Enscale dashboard so you can connect via SSH to your account environments, or your node directly.</p>
         </div>
         <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
           2. Connect to your application node
         </div>
         <div class="px-6">
-          Establish an SSH connection to your node using your node's connection details found in the <b>Connect</b> tab</a>.
+          Establish an SSH connection to your <i>application node</i> using your node's connection details found in the <b>Connect</b> tab</a>.
         </div>
         <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
           3. Create the Master Key file
@@ -177,7 +179,7 @@
           1. Open the database.yml file
         </div>
         <div class="px-6">
-          <p>Access the <a href="https://www.enscale.com/docs/10/features/file-manager" class="text-blue-600">File Manager</a> from your application node in Enscale, then from the ROOT/config folder click on database.yml.</p>
+          <p>Access the <a href="https://www.enscale.com/docs/10/features/file-manager" class="text-blue-600">File Manager</a> from your <i>application node</i> in Enscale, then from the ROOT/config folder click on database.yml.</p>
         </div>
         <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
           2. Edit the database.yml file and save your changes
