@@ -1,0 +1,209 @@
+
+<% if !@all_done %>
+<div class="relative bg-pink-900">
+  <div class="max-w-screen-xl mx-auto py-10 px-4 sm:px-1 lg:py-8 lg:px-2 lg:flex lg:items-center lg:justify-between">
+    <div class="md:ml-auto">
+      <h2 class="font-sans mt-2 text-white text-3xl leading-9 font-bold tracking-tight sm:text-4xl sm:leading-10">
+        Welcome to Enscale
+      </h2>
+      <p class="font-sans mt-3 text-lg leading-7 text-purple-100">
+      The purpose of this application is to familiarize yourself with Enscale's most important features. While learning should be done for the sake of learning, we will also reward upon completion with bonus funds. This way you can enjoy an extended trial and learn even more before upgrading your account.
+        <p class="font-sans mt-3 text-lg leading-7 text-purple-100">
+          For more detailed steps and screenshots you can check out the <a href="https://www.enscale.com/docs/10/account-and-billing/trial-account/quickstart-app" target=_blank class="text-blue-600">Quickstart app article</a> in our documentation.
+      </p>
+      </p>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% if @all_done %>
+  <div class="bg-pink-900">
+    <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+      <h2 class="text-3xl leading-9 font-bold tracking-tight text-white sm:text-4xl sm:leading-10">
+        CONGRATULATIONS
+        <br>
+        <span class="text-white font-semibold tracking-normal">You have completed all tasks.</span>
+      </h2>
+      <div class="mt-8 flex lg:flex-shrink-0 lg:mt-0">
+        <div class="inline-flex rounded-md shadow">
+          <a href="https://dashboard.enscale.com/overview#reward" class="inline-flex items-center justify-center px-6 py-6 border-4 border-white text-3xl text-white leading-6 font-semibold rounded-md text-white bg-pink-900 hover:bg-white hover:text-pink-900 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+            Claim Reward
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="bg-purple-100">
+
+  <% if @redis_connection %>
+    <div class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div class="border-4 border-green-500 bg-white overflow-hidden shadow rounded-lg">
+        <div class="border-b border-gray-200 px-4 py-5 sm:px-6 grid md:grid-cols-12">
+          <p class="mt-3 text-lg leading-7 text-pink-900 font-semibold uppercase md:col-span-9 order-2 md:order-1"> 
+          ADDING REDIS
+          </p>
+          <img src="green_tick.svg" class="col-span-12 md:col-start-12 order-1 md:order-2 mb-8 md:mb-0 w-12 h-12">    
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div class=" bg-white overflow-hidden shadow rounded-lg">
+        <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
+          <p class="mt-3 text-lg leading-7 text-pink-900 font-semibold uppercase md:col-span-9 order-2 md:order-1">
+          ADDING REDIS
+          </p>    
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          1. Add the node to your environment
+        </div>
+        <div class="px-6">
+          <p>Enter your environment and click <b>Add new node</b>. Redis can be found in the NoSQL database category.</p>
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          2. Add an environment variable
+        </div>
+        <div class="px-6 pb-6">
+          <p class="pb-4">From the <i>application<i/> node's <b>Configure tab</b> open <b>Variables</b> and add the following variable:</b>
+          <p class="px-8">Name: REDIS_URL </p>
+          <p class="px-8">Value: redis://:[redis_password]@[accessURL] </p>
+        <p class="pt-4"><i> *The password and access URL are sent to you via email after the Redis node is created.</i></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+  <% if @ssl_on %>
+    <div class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div class="border-4 border-green-500 bg-white overflow-hidden shadow rounded-lg">
+        <div class="border-b border-gray-200 px-4 py-5 sm:px-6 grid md:grid-cols-12">
+          <p class="mt-3 text-lg leading-7 text-pink-900 font-semibold uppercase md:col-span-9 order-2 md:order-1"> 
+          SECURING WITH SSL
+          </p>
+          <img src="green_tick.svg" class="col-span-12 md:col-start-12 order-1 md:order-2 mb-8 md:mb-0 w-12 h-12">    
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div class=" bg-white overflow-hidden shadow rounded-lg">
+        <div class="border-b border-gray-200 px-4 py-5 sm:px-6 grid md:grid-cols-12">
+          <p class="mt-3 text-lg leading-7 text-pink-900 font-semibold uppercase md:col-span-9 order-2 md:order-1">
+          SECURING WITH SSL
+          </p>
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          Use our shared SSL certificate to ensure there is a secure HTTPS connection to your environment
+        </div>
+        <div class="px-6 pb-6">
+          <p>Shared SSL is perfect for development projects which don't need public IP access. Enable it from the <b>Actions</b> dropdown > <b>Manage SSL</b> > <b>Enable Shared SSL</b>.</p>
+          <br>
+          <p>Reopen the quickstart app from the Enscale dashboard or manually reload it with https to use the SSL certificate.
+          <br>
+          <p>For production use you will have a choice of using your own SSL certificate, or use our Let's Encrypt integration to issue and automatically renew SSL certificates for the environment name or any custom domain you've pointed to your environment.</p>
+          
+        </div>
+
+      </div>
+    </div>
+
+  <% end %>
+
+  <% if @master_key_file %>
+    <div class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div class="border-4 border-green-500 bg-white overflow-hidden shadow rounded-lg">
+        <div class="border-b border-gray-200 px-4 py-5 sm:px-6 grid md:grid-cols-12">
+          <p class="mt-3 text-lg leading-7 text-pink-900 font-semibold uppercase md:col-span-9 order-2 md:order-1"> 
+          CREATING A MASTER KEY FILE
+          </p>
+          <img src="green_tick.svg" class="col-span-12 md:col-start-12 order-1 md:order-2 mb-8 md:mb-0 w-12 h-12">    
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div class=" bg-white overflow-hidden shadow rounded-lg">
+        <div class="border-b border-gray-200 px-4 py-5 sm:px-6 grid md:grid-cols-12">
+          <p class="mt-3 text-lg leading-7 text-pink-900 font-semibold uppercase md:col-span-9 order-2 md:order-1">
+          CREATING A MASTER KEY FILE
+          </p>
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          1. Set up SSH
+        </div>
+        <div class="px-6">
+          <p>Open the <b>Manage SSH keys</b> modal from the main account dropdown (next to your email address) and add a <b>public SSH key</b> to the Enscale dashboard so you can connect via SSH to your account environments, or your node directly.</p>
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          2. Connect to your application node
+        </div>
+        <div class="px-6">
+          Establish an SSH connection to your <i>application node</i> using your node's connection details found in the <b>Connect</b> tab</a>.
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          3. Create the Master Key file
+        </div>
+        <div class="px-6 pb-6">
+          Run <text class="text-gray-700 font-mono">rails secret > config/master.key.example</text> in /var/www/webroot/ROOT.
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+  <% if @db %>
+    <div class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div class="border-4 border-green-500 bg-white overflow-hidden shadow rounded-lg">
+        <div class="border-b border-gray-200 px-4 py-5 sm:px-6 grid md:grid-cols-12">
+          <p class="mt-3 text-lg leading-7 text-pink-900 font-semibold uppercase md:col-span-9 order-2 md:order-1"> 
+          SETTING A DATABASE NAME
+          </p>
+          <img src="green_tick.svg" class="col-span-12 md:col-start-12 order-1 md:order-2 mb-8 md:mb-0 w-12 h-12">    
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-6 py-6">
+      <div class=" bg-white overflow-hidden shadow rounded-lg">
+        <div class="border-b border-gray-200 px-4 py-5 sm:px-6 grid md:grid-cols-12">
+          <p class="mt-3 text-lg leading-7 text-pink-900 font-semibold uppercase md:col-span-9 order-2 md:order-1">
+          SETTING A DATABASE NAME
+          </p>
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          1. Open the database.yml file
+        </div>
+        <div class="px-6">
+          <p>Access the <a href="https://www.enscale.com/docs/10/features/file-manager" class="text-blue-600">File Manager</a> from your <i>application node</i> in Enscale, then from the ROOT/config folder click on database.yml.</p>
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          2. Edit the database.yml file and save your changes
+        </div>
+        <div class="px-6 pb-6"> Replace the file content with the below lines:
+<pre class="bg-gray-400">
+default: &default
+  adapter: sqlite3
+  pool: 5
+
+production:
+  <<: *default
+  database: yourdbnamehere.db
+</pre>
+        </div>
+        <div class="px-6 py-5 mt-1 text-lg leading-5 text-gray-800 font-semibold">
+          3. Restart the application node
+        </div>
+           <div class="px-6 pb-6">
+             Click the <b>restart</b> icon on your application node so the configuration changes take effect.
+     
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
